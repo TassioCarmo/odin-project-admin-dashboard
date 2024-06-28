@@ -1,0 +1,255 @@
+@import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=VT323&display=swap');
+
+
+:root {
+    --font-color-sidebar: white;
+    --font-color-header: #888;
+    --font-color-button: white;
+
+    --background-color-aside: #1992d4;
+    --background-color-main: #e2e8f0;
+    --background-color-header: white;
+    --background-color-button: #1DA1F2;
+    --background-color-card: white;
+
+    --font-size-sidebar-nav-items: 1.1rem;
+    --font-size-sidebar-h1: 1.6rem;
+
+    --font-family-sidebar: "Roboto", sans-serif;
+
+    --font-weight-sidebar-nav-items: 600;
+    --font-weight-sidebar-h1: 600;
+
+    --card-line: orange;
+
+
+
+
+}
+
+.page-container {
+    display: grid;
+    grid-template-columns: 15em 1fr 1fr;
+    grid-template-rows: 10em 1fr;
+    grid-template-areas:
+        "sidebar header header"
+        "sidebar main main";
+    min-height: 100vh;
+}
+
+/* SideBar*/
+
+.sidebar {
+    grid-area: sidebar;
+    padding-left: 2em;
+    background-color: var(--background-color-aside);
+    color: var(--font-color-sidebar);
+    font-family: var(--font-size-sidebar-nav-items);
+    font-weight: var(--font-weight-sidebar-nav-items);
+
+
+}
+
+.sidebar-nav-icons {
+    width: 1.2em;
+    margin-right: 0.5em;
+
+}
+
+.nav-items {
+    font-size: var(--font-size-sidebar-nav-items);
+    display: flex;
+    padding-bottom: 1em;
+    cursor: pointer;
+
+
+}
+
+.dashboard-nav-item {
+    font-size: 1.5rem;
+    padding: 0.5em 0 1.8em 0;
+
+
+}
+
+.sidebar>h1 {
+    font-size: var(--font-size-sidebar-h1);
+    font-weight: var(--font-weight-sidebar-h1);
+}
+
+.nav-bar>ul li:nth-child(6) {
+    padding-bottom: 5em;
+}
+
+/* Header */
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas:
+        "search search notification"
+        "profile profile button";
+    align-items: center;
+    background-color: var(--background-color-header);
+    padding: 0.5em 0.9em;
+    margin-left: 2em;
+    
+}
+
+.header .profile {
+    grid-area: profile;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 0.3em;
+}
+
+.header .name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.header .greeting {
+    font-size: 0.9rem;
+    color: var(--font-color-header);
+    
+}
+
+.header .buttons {
+    grid-area: button;
+
+    
+}
+
+.header .buttons button {
+    background-color: var(--background-color-button);
+    color: var(--font-color-button);
+    border: none;
+    padding: 0.5em 1.9em;
+    margin-left: 0.5em;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.header .search {
+    flex-grow: 1;
+    grid-area: search;
+}
+
+.header .search input {
+    width: 100%;
+    padding: 0.3em;
+    background-color: var(--background-color-main);
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.header .notification {
+    grid-area: notification;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-left: 2em;
+
+}
+
+
+
+/*Main*/
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 16em;
+    grid-template-areas:
+        "project project announcements"
+        "project project trending";
+
+    background-color: var(--background-color-main);
+
+}
+
+.projects-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 1em;
+    grid-area: project;
+    padding: 2em 1em;
+}
+
+.project-card {
+    background: var(--background-color-card);
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-left: 4px solid var(--card-line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card .project-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.project-card .project-description {
+    font-size: 0.9em;
+    color: var(--font-color-header);
+    margin-bottom: 1em;
+}
+
+.project-card .project-icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.project-card .project-icons i {
+    font-size: 1.2em;
+    margin-left: 10px;
+    cursor: pointer;
+    color: var(--font-color-header);
+}
+
+.announcement-container {
+    grid-area: announcements;
+    margin-right: 1em;
+    margin-top: 1em;
+
+
+}
+
+.announcement-heading{
+    background-color: var(--background-color-card);
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 80%;
+
+}
+
+.trending-container {
+    grid-area: trending;
+    margin-right: 1em;
+
+}
+
+.trending{
+    background-color: var(--background-color-card);
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 80%;
+}
